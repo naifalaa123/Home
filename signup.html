@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiGlobal - Register User</title>
+    <link rel="icon" type="icon" href="img/site-con.png">
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(0, 0, 0, 0.8000);
+            margin: 0;
+            padding: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #3498db;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            border-radius: 10px;
+            
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color:  rgba(0, 0, 0, 0.8000);
+            border-radius: 10px;
+            border: rgb(250, 39, 120) 2px solid;
+            border: rgb(160, 160, 160) 2px solid;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: black;
+            box-shadow: 0 4px 8px rgb(63, 63, 63);
+        }
+
+        
+        .logo img{width: 200px; cursor: pointer;}
+        .signbtn{width: 100px; height: 6vh; color: white; cursor: pointer; border: none; border-radius: 7px; font-size: 0.9em; font-weight: 500;background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);}
+
+        .login-link {
+            
+            font-size: 1.1em;
+            color: white;
+        }
+
+        
+
+        /* Sign Up container styling */
+        .signup-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        /* Heading styling */
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form label styling */
+        label {
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Input field styling */
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        /* Button styling */
+        .loginbtn {
+            background-color: #4CAF50;
+            background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 550;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        
+
+        /* Message styling */
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: blue;
+        }
+
+        /* Error message styling */
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+
+        .create-account{
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .create-account a{
+            text-decoration: none;
+        }
+        .create-account a:hover{
+            text-decoration: underline;
+        }
+
+        @media (max-width:575px){.login-link{display: none;} .header{justify-content: center; padding-top: 3px; padding-bottom: 3px;}}
+        @media (max-width:575px){.fotttt{display: none; }}
+        
+    </style>
+</head>
+<body>
+    <!-- Header with logo and login link -->
+    <div class="header">
+        <div class="logo"><img src="img/whitelogo2.png" alt="AiGlobal"></div>
+        <div class="login-link">
+            <p>Already have an account? &nbsp; <a href="login.html"><button class="signbtn">Login</button></a></p>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <form id="signupForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br>
+
+            <label for="referralcode">Referral Code (Optional) :</label>
+            <input type="text" id="referralcode" ><br>
+
+            <button class="loginbtn" type="submit">Register</button>
+        </form>
+
+        <div id="message"></div>
+
+        <div class="create-account">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <div class="fotttt" align="center" style="color: white; margin-bottom: 2.5%; ">Copyright 2024 AiGlobal. All rights reserved.</div> 
+
+<script>
+// Function to get the referral code from URL
+function getReferralCodeFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('ref');
+}
+
+// Predefined users for referral code validation (you can modify this as needed)
+const predefinedUsers = [
+    { username: 'johnDoe', email: 'johndoe@example.com', referralCode: 'harouneyRFCD' },
+    { username: 'aliceSmith', email: 'alicesmith@example.com', referralCode: 'anotherReferral' }
+];
+
+// Automatically populate referral code if available in the URL
+window.onload = function() {
+    const referralCodeFromURL = getReferralCodeFromURL();
+    if (referralCodeFromURL) {
+        document.getElementById('referralcode').value = referralCodeFromURL; // Populate the input field
+    }
+};
+
+// Sign up form handler
+document.getElementById('signupForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get user input
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const referralcode = document.getElementById('referralcode').value;
+
+    // Check if the username or email exists in predefined users
+    const usernameExists = predefinedUsers.some(user => user.username === username);
+    const emailExists = predefinedUsers.some(user => user.email === email);
+
+    // If username or email already exists, show a message
+    if (usernameExists) {
+        document.getElementById('message').innerText = "Username already exists!";
+        return;
+    }
+
+    if (emailExists) {
+        document.getElementById('message').innerText = "Email already used!";
+        return;
+    }
+
+    // Check if the referral code is valid
+    const validReferral = predefinedUsers.some(user => user.referralCode === referralcode);
+
+    
+
+    // If both username and email don't exist, create account
+    const newUser = {
+        username: username,
+        email: email,
+        password: password,  // In real scenarios, passwords should be hashed
+        balance: 11.00,
+        balance1: 11.00,
+        balance2: 11.00,
+        balance3: 11.00,
+        balance4: 11.00,
+        balance5: 11.00,  // Default balance for new users
+        depositHistory: [],
+        withdrawalHistory: [],
+        transactionLogs: [],
+        investmentLogs: [],
+        referredLogs: []
+    };
+
+    // Store the new user in localStorage
+    localStorage.setItem(username, JSON.stringify(newUser));
+
+    // Show success message and redirect after 3 seconds
+    document.getElementById('message').innerText = "Account created successfully! Redirecting to login...";
+
+    // Redirect to login page after 3 seconds
+    setTimeout(function() {
+        window.location.href = 'login.html'; // Redirect to login page
+    }, 3000);
+});
+
+</script>
+
+</body>
+</html>
