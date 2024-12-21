@@ -143,7 +143,7 @@ function logout() {
     localStorage.removeItem('loggedInUsername');
 
     // Redirect to login page or home page after logging out
-    window.location.href = 'home.html'; // Redirect to home (login page) after logout
+    window.location.href = 'index.html'; // Redirect to home (login page) after logout
 }
 
 
