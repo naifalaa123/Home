@@ -1,0 +1,61 @@
+
+.depo11a {
+    display: block;
+    background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px;
+    width: 50%; padding:0; margin-left: 25%; 
+}
+
+.settsacc{background-color: rgb(163, 163, 255); }
+
+.depo11b {
+    display: block;
+    background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px;
+    width: 50%; padding-bottom: 3px; margin-left: 25%;
+}
+
+.hrara{width: 50%; display: ;}
+
+.depo11c {
+    display: block;
+    background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px; padding: 20px;
+    width: 46%; margin-left: 25%;
+}
+
+
+
+.labelsettings{margin-left: 12%; font-size: 1em; font-weight: 400;}
+.inpots{width: 75%; margin-left: 10%; height: 3vh; margin-top: 3%;}
+.changepassword{width: 79%; margin-left: 10%;  height: 7vh; border: none; cursor: pointer; color: white; border-radius: 5px; background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b); font-size: 1.1em; font-weight: 500; }
+.changepassword:hover{transform: translateY(-3px);}
+
+
+input{  background-color: #9c9c9c; padding: 10px ; font-size: 1.2em; border: 1px solid ; border-radius: 8px;}
+input:focus{outline: none; border: 1px solid #d80d9b;}
+
+
+.inpuhl1{ display: block; margin-bottom: 10px;}
+.inpuhl{ display: block; }
+.inpuhl1 input{ margin-left: 10%; width: 75%; height: 3vh;}
+.inpuhl input{ margin-left: 10%; width: 75%; height: 3vh;}
+
+@media (max-width:800px){
+
+    .depo11a {
+        display: block;
+        background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px;
+        width: 90%; padding-bottom: 3px; margin-left: 5%; 
+    }
+
+    .depo11b {
+        display: block;
+        background-color: black; border: 1px solid rgb(182, 182, 182); border-radius: 10px;
+        width: 90%; padding-bottom: 3px; margin-left: 5%;
+    }
+
+    .hrara{width: 90%; display: ;}
+
+    .depo11c{width: 80%; margin-left: 5%;}
+
+
+
+}

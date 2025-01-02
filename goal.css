@@ -1,0 +1,62 @@
+.gl-container {
+    text-align: center;
+    background-color: rgb(236, 236, 236);
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    justify-content: center;
+    margin: 2%;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 2em;
+}
+h5 {
+    color: darkblue;
+}
+
+#gl-checkBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: red;
+    background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 150px;
+}
+
+/* Loading bar */
+#gl-loadingBarContainer {
+    width: 100%;
+    background-color: #ddd;
+    height: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: none;
+}
+
+#gl-loadingBar {
+    width: 0%;
+    height: 100%;
+    background-color: rgb(212, 40, 141);
+    border-radius: 10px;
+}
+
+/* Result text */
+p {
+    font-size: 1em;
+    font-weight: bold;
+    color: darkred;
+    margin-top: 20px;
+    display: none;  /* Initially hide result */
+    background-color: #ca89e4;
+    width: 100px;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+

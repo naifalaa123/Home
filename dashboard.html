@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiGlobal - Dashboard</title>
+    <link rel="icon" type="icon" href="img/site-con.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css">
+    
+</head>
+
+    <body>
+
+        <div class="header">
+            <div class="logo"><a href="dashboard.html"><div class="logo" style="font-size: 1.5em; color: white; font-weight: 700; padding: 7px;" >AiGlobal</div></a></div>
+            <nav class="nav">
+                <button class="logout-btn" onclick="logout()"> <i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                <button class="account-btn" id="dropdownToggleButton" onclick="toggleDropdown()">
+                    <div class="profile1">
+                        <!-- SVG for user icon inside a circle -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"></circle>
+                        <path d="M12 12c2.5 0 4-1.5 4-4s-1.5-4-4-4-4 1.5-4 4 1.5 4 4 4z"></path>
+                        <path d="M6 18c0-3 3-4 6-4s6 1 6 4"></path>
+                        </svg>
+                    </div>
+                    <span class="profile2">&#9660;</span>
+                    <div class="profile3"   onclick="this.classList.toggle('change')" > 
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+
+                        <script>
+                        </script>
+                    </div>
+                </button>
+
+                <!-- Account dropdown (small window) -->
+                <div id="accountDropdown" class="account-dropdown">
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice3('choice3')"><i><img class="xbtlogos" src="img/Crash.png" alt=""></i> Crash</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice4('choice4')"><i><img class="xbtlogos" src="img/Appleee.png" alt=""></i> Apple of fortune</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice5('choice5')"><i><img class="xbtlogos" src="img/thimble.png" alt=""></i> Thimbles</a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice6('choice6')"><i><img class="xbtlogos" src="img/Dice.png" alt=""></i> Under 7 or over 7 </a> </span>
+                    <span class="showlist"> <a href="javascript:void(0)" onclick="selectChoice7('choice7')"><i><img class="xbtlogos" src="img/Goal.png" alt=""></i> Goal! </a> </span>
+                    <a href="javascript:void(0)" onclick="selectChoice11('choice11')"><i id="bticonsa" class="fa-solid fa-gear"></i> Settings</a>
+                    <a href="javascript:void(0)" onclick="selectChoice12('choice12')"><i id="bticonsb" class="fa-brands fa-teamspeak"></i>Support</a>
+                    <hr>
+                    <a href="javascript:void(0)" onclick="logout()"><i id="bticonl" class="fa-solid fa-right-from-bracket"></i>  Logout</a>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
+
+
+        
+        <div class="container" id="mainContainer">
+            <div class="left-panel">
+                
+                <ul>
+
+                    <li onclick="showContent('choice1', this)" class="active"><i id="bticond" class="fas fa-home"></i> <span class="showname" > Dashboard </span> <span class="hidelogos"> Dashboard </span></li>
+                    <li onclick="showContent('choice3', this)"> <i><img class="xbtlogos" src="img/Crash.png" alt=""></i>  <span class="showname"> </span> <span class="hidelogos"> Crash </span></li>
+                    <li onclick="showContent('choice4', this)"> <i><img class="xbtlogos" src="img/Appleee.png" alt=""></i>  <span class="showname"> </span> <span class="hidelogos"> Apple of fortune</span> </span></li>
+                    <li onclick="showContent('choice5', this)"> <i><img class="xbtlogos" src="img/thimble.png" alt=""></i>  <span class="showname"> </span> <span class="hidelogos"> thimbles </span></li>
+                    <li onclick="showContent('choice6', this)"> <i><img class="xbtlogos" src="img/Dice.png" alt=""></i>  <span class="showname"> </span> <span class="hidelogos"> Under 7 or over 7 </span></li>
+                    <li onclick="showContent('choice7', this)"> <i><img class="xbtlogos" src="img/Goal.png" alt=""></i>  <span class="showname"> </span> <span class="hidelogos"> Goal! </span></li>
+                    <li onclick="showContent('choice11', this)"><i id="bticonsa" class="fa-solid fa-gear"></i> <span class="showname"> Settings </span> <span class="hidelogos"> Settings </span> </li>
+                    <li onclick="showContent('choice12', this)"><i id="bticonsb" class="fa-brands fa-teamspeak"></i> <span class="showname"> Support </span> <span class="hidelogos"> Support </span> </li>
+                    
+                    <li class="logout-btn" id="logoutBtn" onclick="logout()"><i id="bticonl" class="fa-solid fa-right-from-bracket"></i> <span class="showname"> Logout </span> <span class="hidelogos"> Logout </span> </li>
+                    
+                </ul>
+            </div>
+
+            <div class="right-panel">
+                <div id="choice1" class="content active-content">
+                    
+                    <div class="headerdsh">
+                        <h3>Welcome, <span id="username"></span> </h3>
+                        <p>Select a Plan that Fits Your Needs</p>
+                      </div>
+                    
+                      <div class="containerdsh">
+                        <!-- Free Plan Card -->
+                        <div class="card">
+                          <div class="card-header">Free Plan</div>
+                          <div class="price">$0 / Month</div>
+                          <ul class="features">
+                            <li>1 GB Storage</li>
+                            <li>Basic Support</li>
+                            <li>Limited Access</li>
+                          </ul>
+                          <button class="cta-btn" onclick="showModal('Free Plan', '$0 / Month', '1 GB Storage, Basic Support, Limited Access', '1A2B3C4D5E6F7G8H9I0J')">Select Plan</button>
+                        </div>
+                    
+                        <!-- Standard Plan Card -->
+                        <div class="card">
+                          <div class="card-header">Standard Plan</div>
+                          <div class="price">$15 / Month</div>
+                          <ul class="features">
+                            <li>10 GB Storage</li>
+                            <li>Priority Support</li>
+                            <li>Full Access</li>
+                          </ul>
+                          <button class="cta-btn" onclick="showModal('Standard Plan', '$15 / Month', '10 GB Storage, Priority Support, Full Access', '2J3K4L5M6N7O8P9Q0R1S')">Select Plan</button>
+                        </div>
+                    
+                        <!-- Premium Plan Card -->
+                        <div class="card">
+                          <div class="card-header">Premium Plan</div>
+                          <div class="price">$30 / Month</div>
+                          <ul class="features">
+                            <li>50 GB Storage</li>
+                            <li>24/7 Premium Support</li>
+                            <li>Unlimited Access</li>
+                          </ul>
+                          <button class="cta-btn" onclick="showModal('Premium Plan', '$30 / Month', '50 GB Storage, 24/7 Premium Support, Unlimited Access', '3T4U5V6W7X8Y9Z0A1B2C')">Select Plan</button>
+                        </div>
+                      </div>
+
+                      <br><br>
+                    
+                      <!-- Modal -->
+                      <div class="modal" id="modal">
+                        <div class="modal-content">
+                          <div class="modal-header" id="modalHeader"></div>
+                          <div class="modal-body">
+                            <p id="modalPrice"></p>
+                            <p id="modalFeatures"></p>
+                            <div class="wallet-address" id="walletAddress"></div>
+                            <button class="copy-btn" onclick="copyToClipboard()">Copy Address</button>
+                          </div>
+                        </div>
+                      </div>
+                    
+                      <!-- Success Message -->
+                      <div id="successMessage" class="success-message">
+                        Wallet address copied successfully!
+                      </div>
+                <script src="dashboard.js"></script>
+                <link rel="stylesheet" href="dashboard.css">
+
+                </div>
+
+
+
+
+
+
+
+
+                <div id="choice12" class="content">
+
+                    <div class="content12">
+                        <div class="content12a"  align="center">
+                            <div class="content12aa" >
+                                
+                                <div class="ticket-form-container">
+                                    <h2>Do you have a problem?</h2>
+                                    <form id="ticketForm">
+                                        <label for="ticketUsername" class="ticketlabel">Username:</label>
+                                        <input class="inputticket" type="text" id="ticketUsername" required readonly><br>
+                                
+                                        <label for="ticketSubject" class="ticketlabel">Subject:</label> <br>
+                                        <input class="inputticket" maxlength="20" type="text" id="ticketSubject" required><br>
+                                
+                                        <label for="ticketMessage" class="ticketlabel">Message:</label>
+                                        <textarea class="inputticket" id="ticketMessage" required></textarea><br>
+                                
+                                        <label for="ticketScreenshot" class="ticketlabel">Screenshot (optional):</label>
+                                        <input class="inputticket" type="file" id="ticketScreenshot"><br>
+                                
+                                        <button class="butntk" type="submit" id="createTicketBtn">Create Ticket</button>
+                                    </form>
+                                
+                                    <div id="ticketMessageArea"></div>
+                                </div>
+                                <br>
+                                <div class="ticket-list-container">
+                                    <h2>Support Ticket List</h2>
+                                    <div id="ticketList"></div>
+                                </div>
+                                <link rel="stylesheet" href="support.css">
+                                <script src="support.js"></script>
+                                
+                                <div class="notificationp">
+
+                                    <h3>Support Reply</h3>
+                                    
+                                    <div id="supportReplyContainer"></div>
+
+                                </div>
+
+                                <br>
+                                <br>
+                                <hr>
+                                
+                                
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+
+
+
+                <!--Deposit section choice3-->
+                <div id="choice3" class="content">
+                    <div class="crashgame1" align="center">
+                        
+                        <div class="crashgame">
+                            
+                            <div align="center">
+                                <div class="containercr">
+                                    <h1>Crash</h1>
+                                    <img style="width: 100%; border-radius: 5px;" src="img/CRASH (2).png" alt="">
+                                    <br>
+                                    <div class="loading-bar-container">
+                                        <div class="loading-bar" id="loadingBar"></div>
+                                    </div> 
+                                    <span style="color: black; ">Press "Check" to start</span> <br>
+                                    <button class="buttonc" id="startButton">Check</button>
+                                    <div > <p class="crashresult" id="result" >Run Crash Game </p> </div>
+                                    <div class="loading" id="loading">Loading...</div>
+                                    <!-- Airplane element that will appear and travel -->
+                                    <div id="airplane" class="airplane"> ✈️ </div> 
+                                    <div id="explosion" class="explosion">💥</div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+
+                            <script src="crash.js"></script>
+                            <link rel="stylesheet" href="crash.css">
+                            <br> <br>             
+                            <hr>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+
+
+                <div id="choice4" class="content">
+
+                    <div class="" align="center">
+                        
+                        <div class="">
+                            <div>
+                                <div class="appleaa"> <br>
+                                    <h1>Apple of fortune</h1>
+                                    <img style="width: 100%; border-radius: 5px;" src="img/Apl.png" alt="">
+
+                                    <div class="applcnnnn"> 
+                                        <div class="apl-apple-container" id="content">
+                                            <div class="apl-apple">🍎</div>
+                                            <div class="apl-apple">🍎</div>
+                                            <div class="apl-apple">🍎</div>
+                                            <div class="apl-apple">🍎</div>
+                                            <div class="apl-apple">🍎</div>
+                                            
+                                        </div>
+                                        
+
+                                    </div>
+                                    
+
+                                    <!-- Loading Bar -->
+                                    <div class="apl-loading-bar-container">
+                                        <div class="apl-loading-bar" id="apl-loading-bar"></div>
+                                    </div>
+                                    <br>
+                                    <h5>Press "Check" to start</h5> 
+                                    <button id="toggleButton" class="apl-button" onclick="changeApple()">Check</button>
+                                    
+                                    
+                                    
+                                    <script>
+                                        document.getElementById('toggleButton').addEventListener('click', function() {
+                                            var contentDiv = document.getElementById('content');
+                                            
+                                            // Hide the content
+                                            contentDiv.style.display = 'none';
+                                
+                                            // After 2 seconds, show the content again
+                                            setTimeout(function() {
+                                                contentDiv.style.display = 'flex';
+                                            }, 2000); // 2000 milliseconds = 2 seconds
+                                        });
+                                    </script>
+                                    
+                                </div>
+                                
+                                
+
+                            </div>
+                            
+                            <script src="apple.js"></script>
+                            <link rel="stylesheet" href="apple.css">
+                            <br> <br> 
+                            <hr>
+                        
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+
+
+                <div id="choice5" class="content">
+                    <div class=""  align="center">
+                            
+                        <div class=""">
+                            <div class="thimplesaa">
+
+                                <div class="cups-container">
+                                    <h1 >Thimbles</h1>
+                                    <img style="width: 100%; border-radius: 5px;" src="img/thimbless.png" alt="">
+                                    
+                                    <div class="cupcont">
+                                        <div class="cup" id="cup1">
+                                            <div class="cup-handle"></div>
+                                        </div>
+                                        <div class="cup" id="cup2">
+                                            <div class="cup-handle"></div>
+                                        </div>
+                                        <div class="cup" id="cup3">
+                                            <div class="cup-handle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <!-- Progress Bar -->
+                                <div class="progress-container" >
+                                    <div class="progress-bar" id="progressBar"></div>
+                                </div>
+                                
+                                <h5>Press "Check" to start</h5>
+                                <button id="playButton" class="buttont">Check</button>
+                            
+                                
+                            
+
+                            </div>
+                            <script src="thimples.js"></script>
+                            <link rel="stylesheet" href="thimples.css">
+                        </div>
+                        <br>
+                        <br>
+                        <hr>
+                    </div>
+                    
+                    
+                </div>
+
+
+
+                <div id="choice6" class="content">
+                    <div class=""  align="center">
+                            
+                        <div class="">
+                            <div>
+                                <div class="dcc-containerdd" align="center">
+                                    <h1>Under 7 or over 7</h1>
+                                    <img style="width: 100%; border-radius: 5px;" src="img/dddice.png" alt="">
+                                
+                                    <div class="dcc-dicedd">
+                                        <div id="dcc-dice1" class="dcc-dice">1</div>
+                                        <div id="dcc-dice2" class="dcc-dice">1</div>
+                                    </div>
+                                    <br>
+                                    <h5>Press "Check" to start</h5>
+                                    <button class="dcc-buttondd" onclick="rollDice()">Check</button>
+                                
+                                    <!-- Loading Bar -->
+                                    <div id="dcc-loading-container" class="dcc-loading-container">
+                                      <div id="dcc-loading-bar" class="dcc-loading-bar"></div>
+                                    </div>
+                                
+                                    <div id="dcc-result" class="dcc-result">Sum: <span > 2 </span></div>
+                                  </div>
+
+
+
+                                <script src="dice.js"></script>
+                                <link rel="stylesheet" href="dice.css">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <hr>
+                    </div> 
+                    
+                </div>
+
+
+
+                <div id="choice7" class="content">
+
+                    <div class=""  align="center" >
+
+                        <div class=""  >
+                            <div>
+                                <div class="gl-container">
+                                    <h1>Goal</h1>
+                                    <img style="width: 100%;" src="img/GOAL (2).png" alt="">
+                                    <h5>Press "Check" to start</h5>
+                                    <button id="gl-checkBtn">Check</button>
+                                    <div id="gl-loadingBarContainer">
+                                        <div id="gl-loadingBar"></div>
+                                    </div>
+                                    <br>
+                                    <div align="center"> <p align="center" id="gl-result"></p> </div>
+                                    
+                                </div>
+                                <script src="goal.js"></script>
+                                <link rel="stylesheet" href="goal.css">
+
+
+
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <br>
+                        <hr>
+                        
+                    </div>
+                
+                    
+                </div>
+
+
+                    
+                    
+            
+
+                <div id="choice11" class="content">
+                    <div  class="contentsettings" >
+
+                        <div class="depo11a" align="center>
+                            <div class="" align="center">
+                                <div style="display: flex; align-items: center; margin-left: 5%;" >
+                                    
+                                    <div class="profile4" style="color: rgb(123, 123, 245); cursor: pointer;">
+                                        <!-- SVG for user icon inside a circle -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"></circle>
+                                        <path d="M12 12c2.5 0 4-1.5 4-4s-1.5-4-4-4-4 1.5-4 4 1.5 4 4 4z"></path>
+                                        <path d="M6 18c0-3 3-4 6-4s6 1 6 4"></path>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;" >
+                                        <h5 style="margin-left: 2%; cursor: pointer; color: white;" id="codref-userName"></h5>
+                                        <h5  style="margin-right: 3%; font-size: 1.1em; cursor: pointer; color: white;"> <i style="margin-right: 3px;" class="fa-solid fa-gear"></i> Settings </h5>
+                                    </div>
+                                    
+                                </div>
+                                <div style="background-color: rgb(209, 157, 157); margin:0;">
+                                    <h3 align="center" class="settsacc" </h3>
+                                    <h3 align="center" class="settsacc"  id="email"></h3>
+                                    <h3 align="center" class="settsacc" >***********</h3>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <div class="depo11b" align="center>
+
+                            <div  class="" align="center" style="padding-bottom: 15px;">
+                                <form action="javascript:avoid(0)">
+
+                                    <h3 align="center">Change Your Password</h3>
+
+                                    <div class="inpuhl1">
+                                        <div>
+                                            <label class="labelsettings" for="passwordre1">New Password</label>
+                                        </div>
+                                        <input  class="inputs" type="password" id="passwordre1" >
+                                    </div>
+                                    
+                                    <div class="inpuhl">
+                                        <div>
+                                            <label class="labelsettings" for="passwordre2">Repeat New Password</label>
+                                        </div>
+                                        <input class="inputs"  type="password" id="passwordre2" >
+                                    </div>
+                                    
+                                    
+                                    <br> <br>
+                        
+                                    <button type="submit" class="changepassword">Save</button> 
+                                    <br>
+                                </form>
+                                
+                                
+                            </div>
+
+                            <br>
+
+
+                            <div class="depo11c">
+
+                                <div class="depo11cc">
+                                    Your changes will take a while to be saved in our Server!
+                                </div>
+
+                            </div>
+                            <br> <br>
+                            <hr class="hrara" ">
+                            <br>
+
+
+                        </div>
+                        <br>
+                        
+                    
+                    </div>
+                    
+                <link rel="stylesheet" href="setting.css">
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            // Predefined users (for demo purposes)
+            const predefinedUsers = [
+                { 
+                    username: 'johnDoe', 
+                    email: 'johndoe@example.com', 
+                    password: 'password123'
+                    
+                },
+                { 
+                    username: 'aliceSmith', 
+                    email: 'alicesmith@example.com',
+                    password: 'password456'
+
+                }
+            ];
+        
+            // Get the logged-in username from localStorage
+            const username = localStorage.getItem('loggedInUsername');
+            let userFound = null;
+        
+            // Check if the logged-in user is in predefined users
+            userFound = predefinedUsers.find(user => user.username === username);
+        
+            // If not found in predefined users, check localStorage for new user
+            if (!userFound) {
+                const storedUser = JSON.parse(localStorage.getItem(username));
+                if (storedUser) {
+                    userFound = storedUser;
+                }
+            }
+        
+            // If no user found, redirect to login page
+            if (!userFound) {
+                window.location.href = 'login.html';
+            } else {
+                // Display user details
+                document.getElementById('username').textContent = userFound.username;
+                document.getElementById('email').textContent = userFound.email;
+                
+
+            }
+        
+        </script>
+
+
+
+
+        <script>
+            
+            // Retrieve the logged-in user's data from localStorage
+            const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+            if (loggedInUsername) {
+                // Display the username on the dashboard
+                document.getElementById('codref-userName').textContent = loggedInUsername;
+            }
+        </script>
+
+
+
+
+
+
+
+
+        <div id="offlineMessage" > No Internet Connection! </div>
+
+        <script>
+            // Function to show offline message and block interactions
+            function handleOffline() {
+                console.log("User is offline");
+                document.getElementById('offlineMessage').style.display = 'block'; // Show the message
+                document.body.classList.add('blocked'); // Block user interactions
+            }
+
+            // Function to hide offline message and unblock interactions
+            function handleOnline() {
+                console.log("User is online");
+                document.getElementById('offlineMessage').style.display = 'none'; // Hide the message
+                document.body.classList.remove('blocked'); // Unblock user interactions
+            }
+
+            // Initial check when the page loads
+            if (navigator.onLine) {
+                handleOnline();  // If the user is online
+            } else {
+                handleOffline(); // If the user is offline
+            }
+
+            // Event listeners to monitor online and offline events
+            window.addEventListener('online', handleOnline);
+            window.addEventListener('offline', handleOffline);
+
+        </script>
+
+        <style>
+            /* Style for the offline message */
+            #offlineMessage {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                text-align: center;
+                font-size: 30px;
+                padding-top: 12%;
+                z-index: 1000;
+            }
+
+            /* Disable user actions when offline */
+            body.blocked {
+                pointer-events: none;  /* Blocks user clicks */
+                user-select: none;     /* Disables text selection */
+            }
+        </style>
+
+
+        <script>
+            
+        </script>
+
+
+
+
+    </body>
+</html>

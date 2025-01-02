@@ -1,0 +1,76 @@
+
+
+.apl-apple-container {
+    display: flex;
+    gap: 20px;
+    background-color: rgb(16, 138, 0);
+    margin-left: 0;
+    padding: 10px;
+    
+    justify-content: center;
+    width: 90%;
+}
+
+.apl-apple {
+    width: 75px;
+    height: 75px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.apl-scary-face {
+    background-color: black;
+    color: yellow;
+    font-size: 40px;
+}
+
+.apl-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+}
+
+.apl-button:hover {
+    background-color: #45a049;
+}
+
+/* Loading bar styles */
+.apl-loading-bar-container {
+    width: 70%;
+    height: 10px;
+    background-color: #e0e0e0;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 3%;
+}
+
+.apl-loading-bar {
+    width: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4CAF50;
+    background: linear-gradient(to right, #5f6aff, #ca89e4,  #d80d9b);
+    transition: width 0.03s linear; /* Smooth transition */
+}
+
+.applcnnnn{background-color: rgb(16, 138, 0); color: red;  padding:0; height: 16vh; border-radius: 5px;
+    border: 2px solid white;}
+
+
+.appleaa{ margin-left:2%; 
+    background-color: rgb(236, 236, 236); padding: 10px; border: 1px solid black; border-radius: 5px;}
